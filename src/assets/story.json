@@ -1,0 +1,133 @@
+[
+    {
+        "cell": 1,
+        "text": "<p>Pour gagner le Port du Sable Noir, vous parcourez en direction de l'ouest environ soixante-quinze kilomètres à travers des plaines et par-delà des collines sans faire de rencontres fâcheuses, heureusement. Vous finissez par rejoindre la côte et vous apercevez les hautes murailles qui entourent le Port du Sable Noir et le groupe de maisons serrées qui avancent dans la mer comme une hideuse excroissance noire. Des navires sont mouillés dans le port, et de la fumée s'élève doucement des cheminées. La scène paraît assez paisible, et c'est seulement lorsque le vent change, vous apportant une odeur de putréfaction, que vous vous rappelez la nature maléfique de cet endroit tristement célebre. <br>En suivant la route poussiéreuse qui longe la côte vers le nord pour arriver aux portes de la ville, vous commencez à remarquer des signes inquiétants, des crânes sur des épieux de bois, des êtres squelettiques dans des cages accrochées aux murailles de la ville, des drapeaux noirs partout. Lorsque vous vous approchez de la porte principale, vous sentez un frisson vous parcourir l'échine et, instinctivement, vous serrez la poignée de votre épée pour vous rassurer. <br>A la porte, vous devez affronter un garde gigantesque en cotte de mailles noire et casque d'acier. Il avance d'un pas, vous barrant le chemin avec sa lance, en disant : <br>« Qui oserait entrer au Port du Sable Noir sans y être invité ? Précise le motif de ta venue ou retourne d'où tu viens. » <br>Allez-vous : <ul><li>Lui dire que vous désirez être conduit auprès de Nicodème ? Rendez-vous au 202</li><li>Lui dire que vous désirez vendre un butin volé ? Rendez-vous au 33</li><li>L'attaquer aussitôt avec votre épée ? Rendez-vous au 49</li></ul></p>",
+        "links": [
+            202,
+            33,
+            49
+        ]
+    },
+    {
+        "cell": 10,
+        "text": "<p>Le GARDE est vraiment furieux et vous charge avec sa lance. <br><strong>GARDE DE LA VILLE</strong> HABILETÉ : %habilete% | ENDURANCE : %endurance% <br>Si vous êtes vainqueur, rendez-vous en 74.</p>",
+        "links": [
+            74
+        ]
+    },
+    {
+        "cell": 29,
+        "text": "<p>Accroupi sur le matelas, vous réfléchissez à la marche à suivre. Vous examinez la cellule avec soin dans l'espoir de trouver une issue secrète pour vous évader.<br> Tentez votre Chance.<br>Si vous êtes Chanceux, en grattant les fissures dans le mur, vous trouvez une pierre descellée. En jetant alors un coup d'œil dans le trou vous apercevez une clef en fer. Vous la glissez dans la serrure de votre cellule et vous êtes stupéfait de constater qu'elle l'ouvre. Vous sortez de la cellule, vous prenez votre épée sur la table et partez pour la ville.<br>Si vous êtes Malchanceux, rendez-vous au 600.</p>",
+        "links": [
+            74,
+            600
+        ]
+    },
+    {
+        "cell": 33,
+        "text": "<p>Vous déclarez au garde que vous désirez vendre quelques coupes en or que vous avez volées dans une taverne de Silverton, et que vous lui donnerez une Pièce d'Or en paiement s'il vous indique où vous adresser pour obtenir le meilleur prix, le garde vous considère d'un regard soupçonneux et dit : <br>« Laissez-moi voir ces coupes dans votre sac à dos avant que je vous laisse entrer. » <br>Allez-vous : <br><ul><li>Lui dire que vous savez que les coupes sont maudites et ne devraient être examinées que par un mage ? Rendez-vous au 381</li><li>Essayer de vous ruer au-delà du garde dans la rue principale ? Rendez-vous au 291</li><li>L'attaquer rapidement avec votre épée ? Rendez-vous au 49</li></ul></p>",
+        "links": [
+            381,
+            291,
+            49
+        ]
+    },
+    
+    {
+        "cell": 49,
+        "text": "<p>Comme vous tirez votre épée, le garde bondit sur sa droite et essaye d'actionner une petite cloche sur le mur du corps de garde.<br>Tentez votre Chance.<br> Si vous êtes Chanceux, il ne réussit pas à atteindre la cloche, pousse un juron, et se tourne pour vous attaquer avec sa lance (rendez-vous au 10).<br> Si vous êtes Malchanceux, il réussit à atteindre la cloche et sonne bruyamment avant de se retourner pour vous attaquer avec sa lance (rendez-vous au 311).</p>",
+        "links": [
+            10,
+            311
+        ]
+    },
+    {
+        "cell": 69,
+        "text": "<p>Au moment même où les gardes vont vous emmener, vous essayez de toutes vos forces échapper à leur étreinte.<br> Lancez deux dés.<br> Si le résultat obtenu est inférieur ou égal à votre total d'HABILETÉ, vous réussissez, rendez-vous au 355.<br> Si le chiffre obtenu est supérieur à votre total d'HABiLETÉ, vous ne parvenez pas à vous dégager et vous êtes emmené, en vous débattant violemment (rendez-vous au 151).</p>",
+        "links": [
+            355,
+            151
+        ]
+    },
+    {
+        "cell": 74,
+        "text": "<p>À travers les portes principales, une silhouette imposante s'introduit dans les rues du port, semblant presque trop large pour le passage étroit entre les vieux bâtiments décrépits. Il émane de lui une aura de force contenue, comme si une puissance immense était contrainte à l'intérieur de son corps massif. C'est là qu'il apparaît, le général Droä de Öteųr, chef de la garde, avançant d'un pas assuré malgré les obstacles qui jonchent son chemin. Il jette un regard déterminé sur vous et dit :<br> « Tiens, mais que fait un étranger par ici ? J'avais stipulé que aucun microbe de ton genre ne devait aller autre part que dans la prison. Je vais devoir régler ça moi-même. Tu as de la chance, je ne vais devoir utiliser que 10% de ma force pour éviter de détruire la ville, mais ce sera amplement suffisant.»<br>Il s'élance vers ne vous donnent que d'autre choix que de vous battre.<br><strong>Général Droä de Ötēur</strong> HABILETÉ : 9 | ENDURANCE : 20 <br>Si vous gagnez vous savez malgré ce combat dantesque que vous n'avez fait que la moitié de l'aventure et vous vous remettez en chemin sans savoir quel terrible et imprévue situation vous attendent.</p>",
+        "links": []
+    },
+    {
+        "cell": 130,
+        "text": "<p>Au moment où le garde s'effondre sur le sol, un autre homme armé surgit, à côté de la porte, attiré manifestement par le bruit de votre combat. Vous n'avez pas le temps de vous enfuir, vous devez combattre.<br> <strong>Premier GARDE DE LA VILLE</strong> HABILETÉ : %habilete% | ENDURANCE : %endurance%<br>Si vous êtes vainqueur, rendez-vous au 74.</p>",
+        "links": [
+            74
+        ]
+    },
+    {
+        "cell": 151,
+        "text": "<p>Les deux gardes vous conduisent dans le corps de garde et vous font descendre aussitôt dans les cellules du sous-sol. Elles sont au nombre de quatre et toutes vides, sauf une où est enfermé un frêle vieillard aux cheveux blancs.<br>Les gardes ouvrent la cellule à côté de la sienne et vous jettent dedans, posant votre épée sur une table à l'extérieur. La cellule ne contient qu'une paillasse et un pot d'eau. Les gardes remontent au premier, et, quand ils ont disparu, le vieil homme se lève de sa paillasse et commence à parler.<br> « Vous êtes un étranger, n'est-ce-pas? Ne répondez pas, c'est évident. Voulez-vous que je vous délivre ? Jouons à pierre-papier-ciseaux, si vous gagnez je vous fais sortir de là dans les cinq minutes».<br> Tentez votre chance.<br> Si vous êtes chanceux, vous avez gagné (rendez-vous au 351).<br> Si vous êtes malchanceux, vous avez perdu (rendez-vous au 29).</p>",
+        "links": [
+            351,
+            29
+        ]
+    },
+    {
+        "cell": 202,
+        "text": "<p>Le garde réplique qu'il va demander une escorte pour vous conduire auprès de Nicodème. Il tend alors la main vers une petite cloche fixée au mur du corps de garde et la fait sonner par trois fois. Presque immédiatement, deux autres gardes sortent en courant de la maison, et vous êtes fort surpris lorsqu'ils vous empoignent chacun par mi bras. Le garde armé d'une lance lève la tête vers le ciel et se met à rire, en disant :<br> « Alors, tu voulais voir Nicodème, hein? Qu'est-ce que tu dirais de voir plutôt l'intérieur d'un cachot? Gardes, emmenez cet imbécile, mettez-le aux fers et jetez la clef ! » <br>Allez-vous :<br> Vous laissez emmener ? Rendez-vous au 151<br>Essayer d'affronter les gardes ? Rendez-vous au 69</p>",
+        "links": [
+            151,
+            69
+        ]
+    },
+    {
+        "cell": 212,
+        "text": "<p>Vous êtes soulagé que le bruit de votre bagarre n'ait pas attiré d'autres gardes, mais, ne voulant pas tenter le sort, vous vous ruez vers la ville (rendez-vous au 74).</p>",
+        "links": [
+            74
+        ]
+    },
+    {
+        "cell": 261,
+        "text": "<p>« Cette cité est gouvernée par le Seigneur Azzur, et c'est un homme redoutable. Quand vous présidez aux destinées d'habitants aussi indisciplinés que ceux du Port du Sable Noir, vous vous devez d'être dur. Et il est impitoyable. Je dois vous avertir que, si on vous trouve sans laissez-passer, vous êtes mort. A votre place, je m'en procurerais un, et vite. » <br>Il fait alors un large geste du bras, vous passez devant lui direction la ville (rendez-vous au 74).</p>",
+        "links": [
+            74
+        ]
+    },
+    {
+        "cell": 291,
+        "text": "<p>Quand le garde prend conscience de ce que vous êtes en train de faire, il jette sa lance sur vous.<br> Tentez votre Chance.<br> Si vous êtes Chanceux, il vous rate, et vous réussissez à passer devant lui en courant pour entrer dans la ville (rendez-vous au 74).<br>Si vous êtes Malchanceux, la lance vous transperce le bras. Rendez-vous au 10.</p>",
+        "links": [
+            74,
+            10
+        ]
+    },
+    {
+        "cell": 311,
+        "text": "<p>Vous vous battez avec le garde<br><strong>GARDES DE LA VILLE</strong> HABILETÉ : %habilete% | ENDURANCE : %endurance%<br> Si vous êtes vainqueur, rendez-vous au 74.</p>",
+        "links": [
+            74
+        ]
+    },
+    {
+        "cell": 351,
+        "text": "<p>Vous avez gagné. Le vieillard plonge alors la main dans ses vêtements et en sort une clé en fer, vous disant qu'elle déverrouillera votre cellule. Sceptique, vous prenez la clé et l'introduisez dans la serrure. À votre grande surprise, la clé tourne. Vous vous tournez alors vers le vieillard et lui demandez s'il veut s'évader avec vous. Il sourit, secoue la tête et répond qu'il est heureux là où il est.<br> Vous sortez de la cellule et, prenant votre épée, vous grimpez l'escalier jusqu'à l'étage au-dessus. Les deux gardes, insouciants, jouent aux cartes. Brandissant votre épée, vous les chargez. Ils empoignent alors leurs propres armes pour se défendre et vous affrontent l'un après l'autre. Si vous êtes vainqueur, vous pressentez qu'avec un début d'aventure aussi mouvementé, il sera plus difficile que prévu d'atteindre votre objectif, surtout que vous n'avez que deux semaines...</p>",
+        "links": []
+    },
+    {
+        "cell": 355,
+        "text": "<p>Vous vous retournez face aux deux gardes qui vous maintenaient et, avant qu'ils aient pu comprendre ce qui leur arrivait, vous leur cognez la tête l'une contre l'autre, les assommant net. Vous vous précipitez ensuite dans la ville vers votre aventure...</p>",
+        "links": [
+        ]
+    },
+    {
+        "cell": 381,
+        "text": "<p>Le garde fronce les sourcils et déclare :<br> « Une histoire à dormir debout, pas de doute. Mais je suppose que vous êtes exactement comme tous les autres dans cette ville. Vous pouvez entrer à vos risques et périls ou vous pouvez acheter mes conseils pour 3 Pièces d'Or. »<br> Allez-vous :<br><ul><li>Entrer directement dans la ville, rendez-vous au 74</li><li>Acheter les conseils du garde (3 Pièces d'Or), rendez-vous au 261.</li></ul></p>",
+        "links": [
+            74,
+            261
+        ]
+    },
+    {
+        "cell": 600,
+        "text": "<p>Votre prison est ordinaire, des murs froids, une légère odeur d'urine avec pour seul divertissent le couinement des rats. Vous vous résignez, attendant que le destin vous libère de cette cage d'acier en sachant pertinemment que la fin est proche.</p>",
+        "links": []
+    }
+]
