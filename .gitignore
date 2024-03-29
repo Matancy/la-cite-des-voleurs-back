@@ -12,6 +12,9 @@
 /build
 /dist
 
+# credentials
+/src/assets/credentials.json
+
 # misc
 .DS_Store
 .env.local

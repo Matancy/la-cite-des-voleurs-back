@@ -6,8 +6,8 @@
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx tsc && pm2 start dist/app.js",
-    "dev": "npx tsc && node dist/app.js"
+    "start": "rm -r dist && npx tsc && cp -r src/assets dist && pm2 start dist/app.js",
+    "dev": "rm -r dist && npx tsc && cp -r src/assets dist && node dist/app.js"
   },
   "author": "",
   "license": "ISC",
