@@ -10,7 +10,7 @@
     },
     {
         "cell": 10,
-        "text": "<p>Le GARDE est vraiment furieux et vous charge avec sa lance. <br><strong>GARDE DE LA VILLE</strong> HABILETÉ : %habilete% | ENDURANCE : %endurance% <br>Si vous êtes vainqueur, rendez-vous en 74.</p>",
+        "text": "<p>Le GARDE est vraiment furieux et vous charge avec sa lance.<br>Vous vous battez<br><strong>GARDE DE LA VILLE</strong> HABILETÉ : %habilete% | ENDURANCE : %endurance% <br>Si vous êtes vainqueur, rendez-vous en 74.</p>",
         "links": [
             74
         ]
@@ -43,7 +43,7 @@
     },
     {
         "cell": 69,
-        "text": "<p>Au moment même où les gardes vont vous emmener, vous essayez de toutes vos forces échapper à leur étreinte.<br> Lancez deux dés.<br> Si le résultat obtenu est inférieur ou égal à votre total d'HABILETÉ, vous réussissez, rendez-vous au 355.<br> Si le chiffre obtenu est supérieur à votre total d'HABiLETÉ, vous ne parvenez pas à vous dégager et vous êtes emmené, en vous débattant violemment (rendez-vous au 151).</p>",
+        "text": "<p>Au moment même où les gardes vont vous emmener, vous essayez de toutes vos forces échapper à leur étreinte.<br> Lancez deux dés.<br> Si le résultat obtenu est inférieur ou égal à votre total d'HABILETÉ, vous réussissez, rendez-vous au 355.<br> Si le chiffre obtenu est supérieur à votre total d'HABiLETÉ, vous ne parvenez pas à vous dégager et vous êtes emmené (rendez-vous au 151).</p>",
         "links": [
             355,
             151
@@ -56,7 +56,7 @@
     },
     {
         "cell": 130,
-        "text": "<p>Au moment où le garde s'effondre sur le sol, un autre homme armé surgit, à côté de la porte, attiré manifestement par le bruit de votre combat. Vous n'avez pas le temps de vous enfuir, vous devez combattre.<br> <strong>Premier GARDE DE LA VILLE</strong> HABILETÉ : %habilete% | ENDURANCE : %endurance%<br>Si vous êtes vainqueur, rendez-vous au 74.</p>",
+        "text": "<p>Au moment où le garde s'effondre sur le sol, un autre homme armé surgit, à côté de la porte, attiré manifestement par le bruit de votre combat. Vous n'avez pas le temps de vous enfuir, vous devez vous battre.<br> <strong>Premier GARDE DE LA VILLE</strong> HABILETÉ : %habilete% | ENDURANCE : %endurance%<br>Si vous êtes vainqueur, rendez-vous au 74.</p>",
         "links": [
             74
         ]
