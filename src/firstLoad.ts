@@ -1,16 +1,21 @@
-import { readFile } from 'fs/promises';
 import { promisify } from 'util';
 import fs from 'fs';
 import { Client } from 'pg';
 import { levenshtein } from './Levenshtein';
-import { raw } from 'express';
-
+import { getCredentials } from './credentials';
 const readFileAsync = promisify(fs.readFile)
-const LUCKY = "chanceux";
-const FIGHT = "battez";
-const THROW = "jettez";
-const CHOICE = "allez-vous";
 
+
+class NodeType {
+    static readonly DICE:Type = {keyword:"lancez", type: "dice"};
+    static readonly DICE_EXPRESSION:Type = {keyword:"lancez xxxx dés", type: "dice"};
+    static readonly LUCK:Type = {keyword: "chance", type: "dice"};
+    static readonly LUCK_EXPRESSION:Type = {keyword: "tentez votre chance", type: "dice"}
+    static readonly CHOICE:Type = {keyword: "allez-vous", type: "choice"};
+    static readonly FIGHT:Type = {keyword: "battez", type: "fight"};
+    static readonly DIRECT_LINK = {keyword: "", type: "directLink"};
+    static readonly END:Type = {keyword:"", type: "end"};
+}
 
 type rawNode = {
     cell: string,
@@ -18,112 +23,88 @@ type rawNode = {
     links: number[]
 }
 
-enum NodeType {
-    DICE = "dice",
-    SIMPLE_SELECT = "simpleSelect",
-    FIGHT = "fight",
-    END = "end"
-}
+type Type = {keyword: string, type: string}
+
 
 class Node {
     cell: string;
     text: string;
-    type: NodeType;
-    links: number[]
-}
+    type: string;
+    links: number[];
 
-class Credentials {
-    readonly user: string = "login";
-    readonly password: string = "pass";
-    readonly port: number = 1234;
-    readonly host: string = "host";
-    readonly database: string = "db";
-}
-
-async function getCredentials(): Promise<Credentials> {
-    let credentials: Credentials = new Credentials();
-
-    try {
-        credentials = JSON.parse(await readFileAsync(`${__dirname}/assets/credentials.json`, { encoding: 'utf8' }));
-    } catch {
-        console.warn("No credentials found");
+    constructor(rawNode: rawNode, type: string){
+        this.cell = rawNode.cell;
+        this.links = rawNode.links;
+        this.text = rawNode.text;
+        this.type = type;
     }
-
-    return credentials;
-
 }
+
+
 
 function detectType(rawNode: rawNode) {
 
     if (rawNode.links.length == 0) {
-        return NodeType.END
+        return NodeType.END.type
     }
 
     let maximumScore = 5;
-    let type: NodeType;
-    let nodes: Array<Node> = new Array();
+    let detectedType: Type;
     let conflict = false;
 
+    const isOfType = (word: string, type: Type) =>{
+        let score = levenshtein(word, type.keyword);
+        if (score < maximumScore) {
+            if (detectedType != null && detectedType != type) {
+                conflict = true;
+            } else {
+                detectedType = type
+            }
+        }
+        
+    }
+
     const sentences = rawNode.text.toLowerCase().replace(/<[^>]*>/g, ' ').replace(/%[^%]*%/g, ' ').split(".");
+    if(sentences[sentences.length -1].trim() === "") sentences.pop();
+
+    sentences.forEach((sentence)=>{
+        let score = levenshtein(sentence.trim(), NodeType.DICE_EXPRESSION.keyword);
+        if (score < 10) {
+            return NodeType.DICE_EXPRESSION.type
+        }
+
+        score = levenshtein(sentence.trim(), NodeType.LUCK_EXPRESSION.keyword);
+        if (score < 10) {
+            return NodeType.LUCK_EXPRESSION.type
+        }
+    })
+
     do {
         conflict = false;
-        type = null;
+        detectedType = null;
 
         sentences.forEach((sentence) => {
-            console.log("analyzing sentence " + sentence)
-            console.log(maximumScore)
             const words = sentence.split(" ");
             words.forEach((word) => {
-
-                let score = levenshtein(word, THROW);
-                if (score < maximumScore) {
-                    if (words.includes("dés") || words.includes("dé")) {
-                        if (type != null && type != NodeType.DICE) {
-                            conflict = true;
-                        } else {
-                            type = NodeType.DICE;
-                        }
-                    }
-                }
-
-                score = levenshtein(word, LUCKY)
-                if (score < maximumScore) {
-                    if (type != null && type != NodeType.DICE) {
-                        conflict = true;
-                    } else {
-                        type = NodeType.DICE;
-                    }
-                }
-
-                score = levenshtein(word, FIGHT)
-                if (score < maximumScore) {
-                    if (type != null && type != NodeType.FIGHT) {
-                        conflict = true;
-                    } else {
-                        type = NodeType.FIGHT;
-                    }
-                }
-
-                score = levenshtein(word, CHOICE)
-                if (score < maximumScore) {
-                    if (type != null && type != NodeType.SIMPLE_SELECT) {
-                        conflict = true;
-                    } else {
-                        type = NodeType.SIMPLE_SELECT;
-                    }
-                }
+                isOfType(word, NodeType.DICE)
+                isOfType(word, NodeType.LUCK)
+                isOfType(word, NodeType.FIGHT)
+                isOfType(word, NodeType.CHOICE)
             })
         })
         if (conflict) {
-            console.log(conflict)
             maximumScore--;
         }
-        if (maximumScore < 0) {
-            throw new Error()
+        if (maximumScore <= 0) {
+            throw new Error("Could not detect type of node. Rework node "+ rawNode.cell)
         }
     } while (conflict)
 
-    return type;
+    if(detectedType != NodeType.FIGHT && rawNode.links.length == 1){
+        detectedType = NodeType.DIRECT_LINK;
+    }
+
+    return detectedType.type;
 
 
 }
@@ -131,10 +112,14 @@ function detectType(rawNode: rawNode) {
 
 export async function firstLoad() {
     let rawNodes: rawNode[] = JSON.parse(await readFileAsync(`${__dirname}/assets/story.json`, { encoding: 'utf8' }));
+    let nodes = new Array<Node>();
+
     rawNodes.forEach((rawNode) => {
         console.log("detecting type of node " + rawNode.cell)
         let type = detectType(rawNode);
         console.log("node " + rawNode.cell + " type: " + type)
+
+        nodes.push(new Node(rawNode, type))
     })
     getCredentials().then((credentials) => {
         const client = new Client(credentials);
