@@ -1,9 +1,10 @@
 import { promisify } from 'util';
 import fs from 'fs';
-import { Client } from 'pg';
+import { Client, Pool } from 'pg';
 import { levenshtein } from './Levenshtein';
 import { getCredentials } from './credentials';
-import { CREATE_TABLE, DROP_QUERIES, INSERT_LINKS_QUERY_BASE, INSERT_NODE_QUERY_BASE } from './databaseScripts';
+import { CREATE_TABLE, RESET_SCHEMA, INSERT_LINKS_QUERY_BASE, INSERT_NODE_QUERY_BASE } from './databaseScripts';
+import {Node, rawNode} from './utils';
 const readFileAsync = promisify(fs.readFile)
 const PROMPT_KEYWORD = "observe";
 
@@ -19,43 +20,7 @@ class NodeType {
     static readonly END: Type = { keyword: "", type: "end" };
 }
 
-type rawNode = {
-    cell: string,
-    text: string,
-    links: number[]
-}
-
 type Type = { keyword: string, type: string }
-
-
-class Node {
-    cell: string;
-    text: string;
-    type: string;
-    prompt: string;
-    links: number[];
-
-    constructor(rawNode: rawNode, type: string, prompt: string) {
-        this.cell = rawNode.cell;
-        this.links = rawNode.links;
-        this.text = rawNode.text;
-        this.type = type;
-        this.prompt = prompt;
-    }
-
-    public toNodeDBTable() {
-        return "(" + this.cell + ", '" + this.text.replace(/'/g, "''") + "','" + this.type + "','" + ((this.prompt != null)?this.prompt.replace(/'/g, "''"):"none") + "')";
-    }
-
-    public toLinksDBTable() {
-        let query: string = "";
-        this.links.forEach((link) => {
-            query += "(" + this.cell + "," + link + "),"
-        })
-        return query;
-    }
-}
-
 
 
 function detectType(rawNode: rawNode) {
@@ -154,7 +119,7 @@ function generateQuery(nodes: Array<Node>) {
     insertNodeQuery = INSERT_NODE_QUERY_BASE.replace("%s", insertNodeQuery.substring(0, insertNodeQuery.length - 1));
     insertLinksQuery = INSERT_LINKS_QUERY_BASE.replace("%s", insertLinksQuery.substring(0, insertLinksQuery.length - 1));
 
-    return DROP_QUERIES.concat(CREATE_TABLE, insertNodeQuery, insertLinksQuery);
+    return RESET_SCHEMA.concat(CREATE_TABLE, insertNodeQuery, insertLinksQuery);
 }
 
 export async function firstLoad() {
@@ -173,17 +138,11 @@ export async function firstLoad() {
     })
 
     getCredentials().then((credentials) => {
-        const client = new Client(credentials);
-        client.connect((err) => {
-            if (err) throw err;
-            console.log("Connected!");
-        });
+        const client = new Pool(credentials);
 
         client.query(generateQuery(nodes));
         client.end();
-    }
-
-    );
+    });
 
 
 }
