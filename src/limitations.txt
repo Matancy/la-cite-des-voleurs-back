@@ -1,0 +1,3 @@
+l'ordre de déclaration des noeuds suivants doit être le même que dans le texte
+
+Pour un lancé de dés, il faut déclarer le premier noeud suivant comme succes et le deuxième comme echec

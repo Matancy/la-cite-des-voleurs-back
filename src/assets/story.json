@@ -1,7 +1,7 @@
 [
     {
         "cell": 1,
-        "text": "<p>Pour gagner le Port du Sable Noir, vous parcourez en direction de l'ouest environ soixante-quinze kilomètres à travers des plaines et par-delà des collines sans faire de rencontres fâcheuses, heureusement. Vous finissez par rejoindre la côte et vous apercevez les hautes murailles qui entourent le Port du Sable Noir et le groupe de maisons serrées qui avancent dans la mer comme une hideuse excroissance noire. Des navires sont mouillés dans le port, et de la fumée s'élève doucement des cheminées. La scène paraît assez paisible, et c'est seulement lorsque le vent change, vous apportant une odeur de putréfaction, que vous vous rappelez la nature maléfique de cet endroit tristement célebre. <br>En suivant la route poussiéreuse qui longe la côte vers le nord pour arriver aux portes de la ville, vous commencez à remarquer des signes inquiétants, des crânes sur des épieux de bois, des êtres squelettiques dans des cages accrochées aux murailles de la ville, des drapeaux noirs partout. Lorsque vous vous approchez de la porte principale, vous sentez un frisson vous parcourir l'échine et, instinctivement, vous serrez la poignée de votre épée pour vous rassurer. <br>A la porte, un garde gigantesque en cotte de mailles noire et casque d'acier vous observe. Il avance d'un pas, vous barrant le chemin avec sa lance, en disant : <br>« Qui oserait entrer au Port du Sable Noir sans y être invité ? Précise le motif de ta venue ou retourne d'où tu viens. » <br>Allez-vous : <ul><li>Lui dire que vous désirez être conduit auprès de Nicodème ? Rendez-vous au 202</li><li>Lui dire que vous désirez vendre un butin volé ? Rendez-vous au 33</li><li>L'attaquer aussitôt avec votre épée ? Rendez-vous au 49</li></ul></p>",
+        "text": "<p>Pour gagner le Port du Sable Noir, vous parcourez en direction de l'ouest environ soixante-quinze kilomètres à travers des plaines et par-delà des collines sans faire de rencontres fâcheuses, heureusement. Vous finissez par rejoindre la côte et vous apercevez les hautes murailles qui entourent le Port du Sable Noir et le groupe de maisons serrées qui avancent dans la mer comme une hideuse excroissance noire. Des navires sont mouillés dans le port, et de la fumée s'élève doucement des cheminées. La scène paraît assez paisible, et c'est seulement lorsque le vent change, vous apportant une odeur de putréfaction, que vous vous rappelez la nature maléfique de cet endroit tristement célebre. <br>En suivant la route poussiéreuse qui longe la côte vers le nord pour arriver aux portes de la ville, vous commencez à remarquer des signes inquiétants, des crânes sur des épieux de bois, des êtres squelettiques dans des cages accrochées aux murailles de la ville, des drapeaux noirs partout. Lorsque vous vous approchez de la porte principale, vous sentez un frisson vous parcourir l'échine et, instinctivement, vous serrez la poignée de votre épée pour vous rassurer. <br>A la porte, un garde gigantesque en cotte de mailles noire et casque d'acier vous observe. Il avance d'un pas, vous barrant le chemin avec sa lance, en disant : <br>« Qui oserait entrer au Port du Sable Noir sans y être invité ? Précise le motif de ta venue ou retourne d'où tu viens. » <br>Allez-vous : <ul><li>Lui dire que vous désirez être conduit auprès de Nicodème ? Rendez-vous au 202.</li><li>Lui dire que vous désirez vendre un butin volé ? Rendez-vous au 33.</li><li>L'attaquer aussitôt avec votre épée ? Rendez-vous au 49.</li></ul></p>",
         "links": [
             202,
             33,
@@ -25,7 +25,7 @@
     },
     {
         "cell": 33,
-        "text": "<p>Vous déclarez au garde que vous désirez vendre quelques coupes en or que vous avez volées dans une taverne de Silverton, et que vous lui donnerez une Pièce d'Or en paiement s'il vous indique où vous adresser pour obtenir le meilleur prix, le garde vous considère d'un regard soupçonneux et dit : <br>« Laissez-moi voir ces coupes dans votre sac à dos avant que je vous laisse entrer. » <br>Allez-vous : <br><ul><li>Lui dire que vous savez que les coupes sont maudites et ne devraient être examinées que par un mage ? Rendez-vous au 381</li><li>Essayer de vous ruer au-delà du garde dans la rue principale ? Rendez-vous au 291</li><li>L'attaquer rapidement avec votre épée ? Rendez-vous au 49</li></ul></p>",
+        "text": "<p>Vous déclarez au garde que vous désirez vendre quelques coupes en or que vous avez volées dans une taverne de Silverton, et que vous lui donnerez une Pièce d'Or en paiement s'il vous indique où vous adresser pour obtenir le meilleur prix, le garde vous considère d'un regard soupçonneux et dit : <br>« Laissez-moi voir ces coupes dans votre sac à dos avant que je vous laisse entrer. » <br>Allez-vous : <br><ul><li>Lui dire que vous savez que les coupes sont maudites et ne devraient être examinées que par un mage ? Rendez-vous au 381.</li><li>Essayer de vous ruer au-delà du garde dans la rue principale ? Rendez-vous au 291.</li><li>L'attaquer rapidement avec votre épée ? Rendez-vous au 49.</li></ul></p>",
         "links": [
             381,
             291,
@@ -71,7 +71,7 @@
     },
     {
         "cell": 202,
-        "text": "<p>Le garde réplique qu'il va demander une escorte pour vous conduire auprès de Nicodème. Il tend alors la main vers une petite cloche fixée au mur du corps de garde et la fait sonner par trois fois. Presque immédiatement, deux autres gardes sortent en courant de la maison, et vous êtes fort surpris lorsqu'ils vous empoignent chacun par mi bras. Le garde armé d'une lance lève la tête vers le ciel et se met à rire, en disant :<br> « Alors, tu voulais voir Nicodème, hein? Qu'est-ce que tu dirais de voir plutôt l'intérieur d'un cachot? Gardes, emmenez cet imbécile, mettez-le aux fers et jetez la clef ! » <br>Allez-vous :<br> Vous laissez emmener ? Rendez-vous au 151<br>Essayer d'affronter les gardes ? Rendez-vous au 69</p>",
+        "text": "<p>Le garde réplique qu'il va demander une escorte pour vous conduire auprès de Nicodème. Il tend alors la main vers une petite cloche fixée au mur du corps de garde et la fait sonner par trois fois. Presque immédiatement, deux autres gardes sortent en courant de la maison, et vous êtes fort surpris lorsqu'ils vous empoignent chacun par mi bras. Le garde armé d'une lance lève la tête vers le ciel et se met à rire, en disant :<br> « Alors, tu voulais voir Nicodème, hein? Qu'est-ce que tu dirais de voir plutôt l'intérieur d'un cachot? Gardes, emmenez cet imbécile, mettez-le aux fers et jetez la clef ! » <br>Allez-vous :<br> Vous laissez emmener ? Rendez-vous au 151.<br>Essayer d'affronter les gardes ? Rendez-vous au 69.</p>",
         "links": [
             151,
             69
@@ -101,7 +101,7 @@
     },
     {
         "cell": 311,
-        "text": "<p>Vous vous battez avec le garde<br><strong>GARDES DE LA VILLE</strong> HABILETÉ : %habilete% | ENDURANCE : %endurance%<br> Si vous êtes vainqueur, rendez-vous au 74.</p>",
+        "text": "<p>Vous vous battez avec le garde<br><strong>GARDE DE LA VILLE</strong> HABILETÉ : %habilete% | ENDURANCE : %endurance%<br> Si vous êtes vainqueur, rendez-vous au 74.</p>",
         "links": [
             74
         ]
@@ -118,7 +118,7 @@
     },
     {
         "cell": 381,
-        "text": "<p>Le garde fronce les sourcils et déclare :<br> « Une histoire à dormir debout, pas de doute. Mais je suppose que vous êtes exactement comme tous les autres dans cette ville. Vous pouvez entrer à vos risques et périls ou vous pouvez acheter mes conseils pour 3 Pièces d'Or. »<br> Allez-vous :<br><ul><li>Entrer directement dans la ville, rendez-vous au 74</li><li>Acheter les conseils du garde (3 Pièces d'Or), rendez-vous au 261.</li></ul></p>",
+        "text": "<p>Le garde fronce les sourcils et déclare :<br> « Une histoire à dormir debout, pas de doute. Mais je suppose que vous êtes exactement comme tous les autres dans cette ville. Vous pouvez entrer à vos risques et périls ou vous pouvez acheter mes conseils pour 3 Pièces d'Or. »<br> Allez-vous :<br><ul><li>Entrer directement dans la ville? Rendez-vous au 74.</li><li>Acheter les conseils du garde pour 3 Pièces d'Or ? Rendez-vous au 261.</li></ul></p>",
         "links": [
             74,
             261

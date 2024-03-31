@@ -4,36 +4,21 @@ import { Client, Pool } from 'pg';
 import { levenshtein } from './Levenshtein';
 import { getCredentials } from './credentials';
 import { CREATE_TABLE, RESET_SCHEMA, INSERT_LINKS_QUERY_BASE, INSERT_NODE_QUERY_BASE } from './databaseScripts';
-import {Node, rawNode} from './utils';
+import { Node, rawNode, KeywordToType, KeywordToTypeHolder, normalizeText } from './utils';
 const readFileAsync = promisify(fs.readFile)
 const PROMPT_KEYWORD = "observe";
-
-
-class NodeType {
-    static readonly DICE: Type = { keyword: "lancez", type: "dice" };
-    static readonly DICE_EXPRESSION: Type = { keyword: "lancez xxxx dés", type: "dice" };
-    static readonly LUCK: Type = { keyword: "chance", type: "dice" };
-    static readonly LUCK_EXPRESSION: Type = { keyword: "tentez votre chance", type: "dice" }
-    static readonly CHOICE: Type = { keyword: "allez-vous", type: "choice" };
-    static readonly FIGHT: Type = { keyword: "battez", type: "fight" };
-    static readonly DIRECT_LINK = { keyword: "", type: "directLink" };
-    static readonly END: Type = { keyword: "", type: "end" };
-}
-
-type Type = { keyword: string, type: string }
-
 
 function detectType(rawNode: rawNode) {
 
     if (rawNode.links.length == 0) {
-        return NodeType.END.type
+        return KeywordToType.END.type
     }
 
     let maximumScore = 5;
-    let detectedType: Type;
+    let detectedType: KeywordToTypeHolder;
     let conflict = false;
 
-    const isOfType = (word: string, type: Type) => {
+    const isOfType = (word: string, type: KeywordToTypeHolder) => {
         let score = levenshtein(word, type.keyword);
         if (score < maximumScore) {
             if (detectedType != null && detectedType != type) {
@@ -45,18 +30,18 @@ function detectType(rawNode: rawNode) {
 
     }
 
-    const sentences = rawNode.text.toLowerCase().replace(/<[^>]*>/g, ' ').replace(/%[^%]*%/g, ' ').split(".");
+    const sentences = normalizeText(rawNode.text).split(".");
     if (sentences[sentences.length - 1].trim() === "") sentences.pop();
 
     sentences.forEach((sentence) => {
-        let score = levenshtein(sentence.trim(), NodeType.DICE_EXPRESSION.keyword);
+        let score = levenshtein(sentence.trim(), KeywordToType.DICE_EXPRESSION.keyword);
         if (score < 10) {
-            return NodeType.DICE_EXPRESSION.type
+            return KeywordToType.DICE_EXPRESSION.type
         }
 
-        score = levenshtein(sentence.trim(), NodeType.LUCK_EXPRESSION.keyword);
+        score = levenshtein(sentence.trim(), KeywordToType.LUCK_EXPRESSION.keyword);
         if (score < 10) {
-            return NodeType.LUCK_EXPRESSION.type
+            return KeywordToType.LUCK_EXPRESSION.type
         }
     })
 
@@ -67,10 +52,10 @@ function detectType(rawNode: rawNode) {
         sentences.forEach((sentence) => {
             const words = sentence.split(" ");
             words.forEach((word) => {
-                isOfType(word, NodeType.DICE)
-                isOfType(word, NodeType.LUCK)
-                isOfType(word, NodeType.FIGHT)
-                isOfType(word, NodeType.CHOICE)
+                isOfType(word, KeywordToType.DICE)
+                isOfType(word, KeywordToType.LUCK)
+                isOfType(word, KeywordToType.FIGHT)
+                isOfType(word, KeywordToType.CHOICE)
             })
         })
         if (conflict) {
@@ -81,8 +66,8 @@ function detectType(rawNode: rawNode) {
         }
     } while (conflict)
 
-    if (detectedType != NodeType.FIGHT && rawNode.links.length == 1) {
-        detectedType = NodeType.DIRECT_LINK;
+    if (detectedType != KeywordToType.FIGHT && rawNode.links.length == 1) {
+        detectedType = KeywordToType.DIRECT_LINK;
     }
 
     return detectedType.type;
@@ -92,7 +77,7 @@ function detectType(rawNode: rawNode) {
 function generatePrompt(rawNode: rawNode) {
     let maximalScore = 4;
     let sentenceToReturn: string = null
-    const sentences = rawNode.text.toLowerCase().replace(/<[^>]*>/g, ' ').replace(/%[^%]*%/g, ' ').split(".");
+    const sentences = normalizeText(rawNode.text).split(".");
     if (sentences[sentences.length - 1].trim() === "") sentences.pop();
 
     sentences.forEach((sentence: string, sentenceIndex: number) => {
