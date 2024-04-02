@@ -7,8 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "rm -rf dist && npx tsc && cp -r src/assets dist && pm2 start dist/app.js",
-    "dev": "rm -rf dist && npx tsc && cp -r src/assets dist && node dist/app.js",
-    "oue" : "npx tsc src/Levenshtein.ts && node src/Levenshtein.js" 
+    "dev": "rm -rf dist && npx tsc && cp -r src/assets dist && node dist/app.js"
   },
   "author": "",
   "license": "ISC",
