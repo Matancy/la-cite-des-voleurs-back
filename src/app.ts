@@ -16,7 +16,7 @@ app.get('/pages/:page', async (req, res) => {
   res.send(storyNode);
 });
 
-app.get('/firstLoad', async (req, res) => {
+app.get('/firstload', async (req, res) => {
   firstLoad();
   res.send("Database built and filled");
 });
