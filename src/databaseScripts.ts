@@ -15,10 +15,20 @@ export const CREATE_TABLE = `
         FOREIGN KEY(id_src_node) REFERENCES node(cell),
         FOREIGN KEY(id_next_node) REFERENCES node(cell)
     );
+
+    CREATE TABLE character(
+        name varchar(20) PRIMARY KEY UNIQUE NOT NULL,
+        hability int NOT NULL,
+        stamina int NOT NULL,
+        luck int NOT NULL,
+        gold int NOT NULL
+    );
 `;
 export const INSERT_NODE_QUERY_BASE = "INSERT INTO node (cell, text, type, prompt) VALUES %s ;";
 
 export const INSERT_LINKS_QUERY_BASE = "INSERT INTO links (id_src_node, id_next_node) VALUES %s ;";
+
+export const RESET_CHARACTER_WITH_BASE = "TRUNCATE TABLE character; INSERT INTO character (name, hability, stamina, luck, gold) VALUES %s ;"
 
 export const SELECT_QUERY_BASE = `
 SELECT json_build_object(
@@ -32,4 +42,15 @@ FROM node n
 LEFT JOIN links l ON n.cell = l.id_src_node
 WHERE n.cell = %s
 GROUP BY n.cell, n.text, n.type, n.prompt;
+`
+export const SELECT_CHARACTER_BASE = `
+SELECT json_build_object(
+    'name', c.name,
+    'hability', c.hability,
+    'stamina', c.stamina,
+    'luck', c.luck,
+    'gold', c.gold
+) AS character
+FROM character c
+WHERE c.name = '%s';
 `

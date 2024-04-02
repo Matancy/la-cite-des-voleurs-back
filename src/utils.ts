@@ -64,3 +64,11 @@ export class EndNode {
     readonly text: string;
     readonly imageURL: URL;
 }
+
+export class Character{
+    readonly name: string;
+    readonly hability: number;
+    readonly stamina: number;
+    readonly luck: number;
+    readonly gold: number;
+}

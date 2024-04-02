@@ -3,18 +3,15 @@ import { levenshtein } from './Levenshtein';
 import { firstLoad } from './firstLoad';
 import { getPage } from './nodeRetrieval';
 import bodyParser from 'body-parser';
+import { Character } from './utils';
+import { getCharacter, insertCharacter } from './fillCharacter';
 
 const app = express()
 const port = 3100
 
 firstLoad();
 
-
 app.use(bodyParser.json());
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
 
 app.get('/pages/:page', async (req, res) => {
   let storyNode =  await getPage(Number(req.params.page));
@@ -26,11 +23,13 @@ app.get('/firstload', async (req, res) => {
   res.send("Database built and filled");
 });
 
-app.put('/character', (req, res) => {
-  console.log("recieved")
-  console.log(req.body);
-  res.send("ok");
+app.get('/character/:name', async (req, res)=>{
+  res.send(await getCharacter(req.params.name));
+});
 
+app.put('/character', (req, res) => {
+  insertCharacter(req.body)
+  res.send("character inserted");
 });
 
 
