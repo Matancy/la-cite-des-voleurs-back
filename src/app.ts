@@ -6,8 +6,6 @@ import { getPage } from './nodeRetrieval';
 const app = express()
 const port = 3100
 
-firstLoad();
-
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -16,6 +14,11 @@ app.get('/', (req, res) => {
 app.get('/pages/:page', async (req, res) => {
   let storyNode =  await getPage(Number(req.params.page));
   res.send(storyNode);
+});
+
+app.get('/firstLoad', async (req, res) => {
+  firstLoad();
+  res.send("Database built and filled");
 });
 
 
