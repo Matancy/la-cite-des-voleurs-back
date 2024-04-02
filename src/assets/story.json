@@ -17,7 +17,7 @@
     },
     {
         "cell": 29,
-        "text": "<p>Accroupi sur le matelas, vous réfléchissez à la marche à suivre. Vous observez la cellule avec soin dans l'espoir de trouver une issue secrète pour vous évader.<br> Tentez votre Chance.<br>Si vous êtes Chanceux, en grattant les fissures dans le mur, vous trouvez une pierre descellée. En jetant alors un coup d'œil dans le trou vous apercevez une clef en fer. Vous la glissez dans la serrure de votre cellule et vous êtes stupéfait de constater qu'elle l'ouvre. Vous sortez de la cellule, vous prenez votre épée sur la table et partez pour la ville.<br>Si vous êtes Malchanceux, rendez-vous au 600.</p>",
+        "text": "<p>Accroupi sur le matelas, vous réfléchissez à la marche à suivre. Vous observez la cellule avec soin dans l'espoir de trouver une issue secrète pour vous évader.<br> Tentez votre Chance.<br>Si vous êtes Chanceux, en grattant les fissures dans le mur, vous trouvez une pierre descellée. En jetant alors un coup d'œil dans le trou vous apercevez une clef en fer. Vous la glissez dans la serrure de votre cellule et vous êtes stupéfait de constater qu'elle l'ouvre. Vous sortez de la cellule, vous prenez votre épée sur la table et partez pour la ville (rendez-vous au 74).<br>Si vous êtes Malchanceux, rendez-vous au 600.</p>",
         "links": [
             74,
             600
