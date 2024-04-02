@@ -4,11 +4,10 @@ import { SELECT_QUERY_BASE, SET_SCHEMA } from "./databaseScripts";
 import { Node, rawNode, KeywordToType, KeywordToTypeHolder, NodeType, normalizeText, DiceField } from './utils';
 import { levenshtein } from "./Levenshtein";
 const IMAGES_URL = [
-    "https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.drawception.com%2Fimages%2Fpanels%2F2017%2F5-21%2FpKkCMdsbbp-1.png&tbnid=MBTyyLI6Dg5_6M&vet=12ahUKEwiGvee-op6FAxURTKQEHYQbC8AQMygAegQIARBU..i&imgrefurl=https%3A%2F%2Fdrawception.com%2Fgame%2FpKkCMdsbbp%2Fpoorly-drawn-house%2F&docid=O_0z--Rn3HYxFM&w=300&h=250&q=poorly%20drawn%20house&ved=2ahUKEwiGvee-op6FAxURTKQEHYQbC8AQMygAegQIARBU",
-    "https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.drawception.com%2Fimages%2Fpanels%2F2017%2F8-5%2F8CxrsC2ThD-2.png&tbnid=Y7AmNEkRdpd7AM&vet=12ahUKEwiK3_XMop6FAxUlcaQEHU6uChsQMygBegQIARBM..i&imgrefurl=https%3A%2F%2Fdrawception.com%2Fgame%2F8CxrsC2ThD%2Fbadly-drawn-soldier-very-detailed-weapon%2F&docid=_s8G6OkhKug67M&w=300&h=250&q=poorly%20drawn%20soldier&ved=2ahUKEwiK3_XMop6FAxUlcaQEHU6uChsQMygBegQIARBM",
-    "https://www.google.com/imgres?imgurl=https%3A%2F%2Ffiverr-res.cloudinary.com%2Fimages%2Ft_main1%2Cq_auto%2Cf_auto%2Cq_auto%2Cf_auto%2Fgigs%2F131151753%2Foriginal%2Fdc3a9417e1c41a63417fa291969251706dc501eb%2Fdraw-a-bad-version-of-your-d-and-d-character.jpg&tbnid=Lr86v9O7AGHG2M&vet=12ahUKEwjrluTuo56FAxWhXaQEHaXjC6EQMygCegQIARBS..i&imgrefurl=https%3A%2F%2Fwww.fiverr.com%2Fmichaelgbt%2Fdraw-a-bad-version-of-your-d-and-d-character&docid=TwpKrfRhs9FDFM&w=680&h=349&q=poorly%20drawn%20D%26D&ved=2ahUKEwjrluTuo56FAxWhXaQEHaXjC6EQMygCegQIARBS",
-    "https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.drawception.com%2Fimages%2Fpanels%2F2013%2F6-23%2F8Kd7KEws8z-6.png&tbnid=59mS1UOvAao2CM&vet=12ahUKEwjQyqKKpJ6FAxVCV6QEHRNZCgQQMygHegQIARBj..i&imgrefurl=https%3A%2F%2Fdrawception.com%2Fgame%2F8Kd7KEws8z%2Fsin-city%2F&docid=gQVUqZGu0dyU3M&w=300&h=250&q=poorly%20drawn%20city&ved=2ahUKEwjQyqKKpJ6FAxVCV6QEHRNZCgQQMygHegQIARBj"
-
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZKk-vFG2wqWysYJw6R7Kbgwmd9jmCUg0tx_JdkDWgTBdfKWrcMMShZvi79CGNeWmXOBE&usqp=CAU",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU7aI2HS_LBTQNnXA93FW6pz0dk6gNf_Gp8jiI_rRCg2MpksMpqAJDXRlTne0OP47MNtQ&usqp=CAU",
+    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/131151753/original/dc3a9417e1c41a63417fa291969251706dc501eb/draw-a-bad-version-of-your-d-and-d-character.jpg",
+    "https://cdn.drawception.com/images/panels/2013/6-23/8Kd7KEws8z-6.png"
 ]
 
 const FOE_MAX_STATS = 10;

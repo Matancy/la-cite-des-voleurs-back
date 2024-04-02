@@ -23,8 +23,8 @@ app.get('/firstload', async (req, res) => {
   res.send("Database built and filled");
 });
 
-app.get('/character/:name', async (req, res)=>{
-  res.send(await getCharacter(req.params.name));
+app.get('/character', async (req, res)=>{
+  res.send(await getCharacter());
 });
 
 app.put('/character', (req, res) => {

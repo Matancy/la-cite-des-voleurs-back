@@ -43,7 +43,7 @@ LEFT JOIN links l ON n.cell = l.id_src_node
 WHERE n.cell = %s
 GROUP BY n.cell, n.text, n.type, n.prompt;
 `
-export const SELECT_CHARACTER_BASE = `
+export const SELECT_CHARACTER = `
 SELECT json_build_object(
     'name', c.name,
     'hability', c.hability,
@@ -51,6 +51,5 @@ SELECT json_build_object(
     'luck', c.luck,
     'gold', c.gold
 ) AS character
-FROM character c
-WHERE c.name = '%s';
+FROM character c;
 `
