@@ -13,8 +13,8 @@ firstLoad();
 
 app.use(bodyParser.json());
 
-app.get('/pages/:page', async (req, res) => {
-  let storyNode =  await getPage(Number(req.params.page));
+app.get('/nodes/:node', async (req, res) => {
+  let storyNode =  await getPage(Number(req.params.node));
   res.send(storyNode);
 });
 
