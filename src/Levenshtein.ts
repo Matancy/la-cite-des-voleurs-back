@@ -2,41 +2,43 @@ function minimum(nb1: number, nb2: number, nb3: number): number {
     return Math.min(Math.min(nb1, nb2), nb3)
 }
 
+
 export function levenshtein(str1: string, str2: string) {
-    let len1 = str1 ? str1.length : 0
-    let len2 = str2 ? str2.length : 0
 
-    if (len1 === 0) {
-        return len2;
-    }
-    if (len2 === 0) {
-        return len1;
+    let i: number;
+    let j: number;
+    let cost: number;
+    let str1Len = str1.length;
+    let str2Len = str2.length;
+    let dist: number[][] = []
+
+
+    for (i = 0; i <= str1Len; i++) {
+        dist[i] = []
+        dist[i][0] = i;
     }
 
-    const matrix = new Array<number[]>(len2 + 1);
+    for (j = 0; j <=str2Len; j++) {
+        dist[0][j] = j
+    }
 
-    for (let i = 0; i <= len2; ++i) {
-        let row = matrix[i] = new Array<number>(len1 + 1);
-        row[0] = i;
-    }
-    const firstRow = matrix[0];
-    for (let j = 1; j <= len1; ++j) {
-        firstRow[j] = j;
-    }
-    for (let i = 1; i <= len2; ++i) {
-        for (let j = 1; j <= len1; ++j) {
-            if (str1.charAt(i - 1) === str2.charAt(j - 1)) {
-                matrix[i][j] = matrix[i - 1][j - 1];
+    for (i=1; i<=str1Len ; i ++){
+        for (j=1; j<=str2Len ; j ++){
+            if(str1.charAt(i-1) === str2.charAt(j-1)){
+                cost = 0;
+            }else{
+                cost = 1;
             }
-            else {
-                matrix[i][j] = minimum(
-                    matrix[i - 1][j - 1],
-                    matrix[i][j - 1],
-                    matrix[i - 1][j]
-                ) + 1;
-            }
+            dist[i][j] = minimum(
+                dist[i-1][j]+1,
+                dist[i][j-1] +1,
+                dist[i-1][j-1] + cost
+            )
+            // console.log(`${str1.charAt(i-1)} ${str2.charAt(j-1)} ${cost}` )
         }
     }
-    return matrix[len2][len1]
-
+    // console.log(dist[str1Len][str2Len])
+    return dist[str1Len][str2Len]
 }
+
+levenshtein("toto", "lmpn");
