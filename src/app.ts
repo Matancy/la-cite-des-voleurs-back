@@ -24,7 +24,7 @@ app.get('/firstload', async (req, res) => {
   res.send("Database built and filled");
 });
 
-app.post('/character', cors(getCors(Method.GET)),(req, res) => {
+app.post('/character', cors(getCors(Method.POST)),(req, res) => {
   insertCharacter(req.body)
   res.send("character inserted");
 });
