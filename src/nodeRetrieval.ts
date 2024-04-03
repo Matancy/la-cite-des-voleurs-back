@@ -7,6 +7,7 @@ import { Node } from "./models/node";
 import { KeywordToType } from "./models/keywordToType";
 import { DiceField } from "./enums/diceField";
 import { NodeType } from "./enums/nodeType";
+import { getType } from "./getType";
 const IMAGES_URL = [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZKk-vFG2wqWysYJw6R7Kbgwmd9jmCUg0tx_JdkDWgTBdfKWrcMMShZvi79CGNeWmXOBE&usqp=CAU",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU7aI2HS_LBTQNnXA93FW6pz0dk6gNf_Gp8jiI_rRCg2MpksMpqAJDXRlTne0OP47MNtQ&usqp=CAU",
@@ -21,8 +22,6 @@ const DOR = "d'or";
 const HABILITY_FOE_FIELD = "%habilete%";
 const STAMINA_FOE_FIELD = "%endurance%";
 
-
-type ChoiceCost = { cost: number, nextNode: number }
 
 function callAPI(prompt: string) {
     //bipboupbip
@@ -44,10 +43,13 @@ function generateEnd(node: Node) {
     }`)
 }
 
-function generateDirectLink(node: Node) {
+async function generateDirectLink(node: Node) {
     return JSON.parse(`{
         ${jsonBase(node)},
-        "idOfNextNode": "${node.links[0]}"
+        "nextNode": {
+            "id": "${node.links[0]}",
+            "type": "${await getType(node.links[0])}"
+        }
     }`)
 }
 
@@ -56,13 +58,16 @@ function generateStats() {
 }
 
 
-function generateFight(node: Node) {
+async function generateFight(node: Node) {
     const hability = generateStats();
     const stamina = generateStats();
 
     return JSON.parse(`{
         ${jsonBase(node).replace(HABILITY_FOE_FIELD, hability.toString()).replace(STAMINA_FOE_FIELD, stamina.toString())},
-        "idOfNextNode": "${node.links[0]}",
+        "nextNode": {
+            "id": "${node.links[0]}",
+            "type": "${await getType(node.links[0])}"
+        },
         "foeHability": "${hability}",
         "foeStamina":"${stamina}"
     }`)
@@ -84,14 +89,17 @@ function detectChoices(text: string): string {
     return rectifiedText.slice(rectifiedText.indexOf(words[index]), rectifiedText.length);
 }
 
-function generateChoices(node: Node) {
-    let choicesCost: Array<ChoiceCost> = new Array<ChoiceCost>();
+async function generateChoices(node: Node) {
+    let json = `{
+        ${jsonBase(node)},
+        "links": [
+    `;
 
     const choiceString: string = detectChoices(node.text);
     const choices = choiceString.split(".");
     if (choices[choices.length - 1].trim() === "") choices.pop();
-
-    choices.forEach((choice, choiceIndex) => {
+    let choiceIndex = 0;
+    for (let choice of choices){
         const words = choice.split(" ");
         let index = 0;
         let cost = 0;
@@ -104,18 +112,13 @@ function generateChoices(node: Node) {
                 index++;
             }
         }
-        choicesCost.push({ cost, "nextNode": node.links[choiceIndex] })
-    })
+        json += `{"cost" : "${cost}", "nextNode":{"id": "${node.links[choiceIndex]}","type": "${await getType(node.links[choiceIndex])}"}},`
+        choiceIndex++;
+    }
 
 
-    let json = `{
-        ${jsonBase(node)},
-        "links": [
-    `;
-    choicesCost.forEach(choiceCost => {
-        json = json.concat(`{"cost" : "${choiceCost.cost}", "nextNode":"${choiceCost.nextNode}"},`)
-    })
-    return JSON.parse(json.slice(0, json.length - 1) + "]}");
+
+    return await JSON.parse(json.slice(0, json.length - 1) + "]}");
 }
 
 function getDiceField(text: string) {
@@ -130,15 +133,21 @@ function getDiceField(text: string) {
 
 }
 
-function generateDice(node: Node) {
+async function generateDice(node: Node) {
     const diceField = getDiceField(node.text);
 
     return JSON.parse(`{
         ${jsonBase(node)},
         "action": {
             "field": "${(diceField === DiceField.LUCK) ? DiceField.LUCK : DiceField.HABILITY}",
-            "success": "${node.links[0]}",
-            "fail": "${node.links[1]}"
+            "success": {
+                "id": "${node.links[0]}",
+                "type": "${await getType(node.links[0])}"
+            },
+            "fail": {
+                "id": "${node.links[1]}",
+                "type": "${await getType(node.links[1])}"
+            }
         }
     }`)
 }

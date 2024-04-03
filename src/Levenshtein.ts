@@ -33,10 +33,8 @@ export function levenshtein(str1: string, str2: string) {
                 dist[i][j-1] +1,
                 dist[i-1][j-1] + cost
             )
-            // console.log(`${str1.charAt(i-1)} ${str2.charAt(j-1)} ${cost}` )
         }
     }
-    // console.log(dist[str1Len][str2Len])
     return dist[str1Len][str2Len]
 }
 

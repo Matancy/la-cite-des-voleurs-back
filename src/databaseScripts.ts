@@ -53,3 +53,5 @@ SELECT json_build_object(
 ) AS character
 FROM character c;
 `
+
+export const SELECT_NODE_TYPE_BASE = "SELECT type FROM node WHERE node.cell = %s ;"
