@@ -5,7 +5,7 @@ import { getPage } from './nodeRetrieval';
 import bodyParser from 'body-parser';
 import { getCharacter, insertCharacter } from './fillCharacter';
 import cors from 'cors';
-import { getCors, Method } from './enums/cors';
+import { getCors } from './enums/cors';
 
 const app = express()
 const port = 3100
