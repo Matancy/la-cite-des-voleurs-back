@@ -26,7 +26,7 @@ The **type** define the type of node. Types could be :
 **FoeStamina** is the stamina of the foe.
 
 ### Request :
-Url : /pages/{id}
+Url : /nodes/{id}
 
 Params : 
 - **id** : Identifier of the page *(integer)*
