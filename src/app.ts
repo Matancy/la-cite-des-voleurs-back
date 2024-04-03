@@ -10,16 +10,15 @@ import { getCors } from './enums/cors';
 const app = express()
 const port = 3100
 
-firstLoad();
-
 app.use(bodyParser.json());
 
-app.use((req, res) => {
+app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, POST");
   res.header("Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   )
+  next();
 })
 
 app.get('/nodes/:node', async (req, res) => {
@@ -28,7 +27,7 @@ app.get('/nodes/:node', async (req, res) => {
   res.end()
 });
 
-app.get('/firstload', async (req, res) => {
+app.get('/firstload', (req, res) => {
   firstLoad();
   res.end("Database built and filled")
 });
