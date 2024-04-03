@@ -14,7 +14,7 @@ firstLoad();
 
 app.use(bodyParser.json());
 
-app.get('/nodes/:node', cors(getCors(Method.GET)), async (req, res) => {
+app.get('/nodes/:node', cors(getCors()), async (req, res) => {
   let storyNode =  await getPage(Number(req.params.node));
   res.send(storyNode);
 });
@@ -24,7 +24,7 @@ app.get('/firstload', async (req, res) => {
   res.send("Database built and filled");
 });
 
-app.post('/character', cors(getCors(Method.POST)),(req, res) => {
+app.post('/character', cors(getCors()),(req, res) => {
   insertCharacter(req.body)
   res.send("character inserted");
 });

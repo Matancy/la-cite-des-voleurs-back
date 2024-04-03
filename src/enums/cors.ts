@@ -1,9 +1,7 @@
-export enum Method {GET="GET", POST="POST"}
-
-export function getCors(method : Method){
+export function getCors(){
     return ({
         origin: ['http://localhost:3000', 'http://localhost:3100'],
-        methods: [`${method}`],
+        methods: ['GET', 'POST'],
         allowedHeaders: ['Content-Type']
       })
 }
