@@ -25,16 +25,17 @@ app.use((req, res) => {
 app.get('/nodes/:node', async (req, res) => {
   let storyNode = await getPage(Number(req.params.node));
   res.send(storyNode);
+  res.end()
 });
 
 app.get('/firstload', async (req, res) => {
   firstLoad();
-  res.send("Database built and filled");
+  res.end("Database built and filled")
 });
 
 app.post('/character', (req, res) => {
   insertCharacter(req.body)
-  res.send("character inserted");
+  res.end("character inserted");
 });
 
 
