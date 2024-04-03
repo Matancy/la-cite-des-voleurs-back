@@ -112,7 +112,7 @@ async function generateChoices(node: Node) {
                 index++;
             }
         }
-        json += `{"cost" : "${cost}", "nextNode":{"id": "${node.links[choiceIndex]}","type": "${await getType(node.links[choiceIndex])}"}},`
+        json += `{"cost" : "${cost}", "id": "${node.links[choiceIndex]}","type": "${await getType(node.links[choiceIndex])}"},`
         choiceIndex++;
     }
 
