@@ -10,18 +10,20 @@ import { getCors } from './enums/cors';
 const app = express()
 const port = 3100
 
-const corsOptions = {
-  origin: ['http://localhost:3000', 'http://localhost:3100'],
-  methods: ['GET', 'POST'], // Allow both GET and POST methods
-  allowedHeaders: ['Content-Type']
-};
-
 firstLoad();
 
 app.use(bodyParser.json());
 
-app.get('/nodes/:node', cors(corsOptions), async (req, res) => {
-  let storyNode =  await getPage(Number(req.params.node));
+app.use((req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST");
+  res.header("Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  )
+})
+
+app.get('/nodes/:node', async (req, res) => {
+  let storyNode = await getPage(Number(req.params.node));
   res.send(storyNode);
 });
 
@@ -30,7 +32,7 @@ app.get('/firstload', async (req, res) => {
   res.send("Database built and filled");
 });
 
-app.post('/character', cors(corsOptions),(req, res) => {
+app.post('/character', (req, res) => {
   insertCharacter(req.body)
   res.send("character inserted");
 });
