@@ -13,6 +13,7 @@ firstLoad();
 app.use(bodyParser.json());
 
 app.get('/nodes/:node', async (req, res) => {
+  res.set('Access-Control-Allow-Origin', 'http://localhost:3200');
   let storyNode =  await getPage(Number(req.params.node));
   res.send(storyNode);
 });
