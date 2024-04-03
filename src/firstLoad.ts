@@ -1,10 +1,13 @@
 import { promisify } from 'util';
 import fs from 'fs';
-import { Client, Pool } from 'pg';
+import { Pool } from 'pg';
 import { levenshtein } from './Levenshtein';
 import { getCredentials } from './credentials';
 import { CREATE_TABLE, RESET_SCHEMA, INSERT_LINKS_QUERY_BASE, INSERT_NODE_QUERY_BASE } from './databaseScripts';
-import { Node, rawNode, KeywordToType, KeywordToTypeHolder, normalizeText } from './utils';
+import { normalizeText } from './utils';
+import { rawNode } from './models/rawNode';
+import { KeywordToType, KeywordToTypeHolder } from './models/keywordToType';
+import { Node } from './models/node';
 const readFileAsync = promisify(fs.readFile)
 const PROMPT_KEYWORD = "observe";
 
@@ -128,6 +131,4 @@ export async function firstLoad() {
         client.query(generateQuery(nodes));
         client.end();
     });
-
-
 }

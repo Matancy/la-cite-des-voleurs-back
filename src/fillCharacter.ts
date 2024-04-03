@@ -1,7 +1,7 @@
 import { Pool } from "pg";
 import { getCredentials } from "./credentials";
-import { Character } from './utils';
 import { RESET_CHARACTER_WITH_BASE, SELECT_CHARACTER, SET_SCHEMA } from './databaseScripts';
+import { Character } from "./models/character";
 
 function generateFillQuery(character: Character) {
     return SET_SCHEMA + RESET_CHARACTER_WITH_BASE.replace("%s", `('${character.name}', ${character.hability}, ${character.stamina}, ${character.luck}, ${character.gold})`)

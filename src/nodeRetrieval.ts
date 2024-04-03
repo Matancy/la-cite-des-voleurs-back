@@ -1,8 +1,12 @@
 import { Pool } from "pg";
 import { getCredentials } from "./credentials";
 import { SELECT_QUERY_BASE, SET_SCHEMA } from "./databaseScripts";
-import { Node, rawNode, KeywordToType, KeywordToTypeHolder, NodeType, normalizeText, DiceField } from './utils';
+import { normalizeText } from './utils';
 import { levenshtein } from "./Levenshtein";
+import { Node } from "./models/node";
+import { KeywordToType } from "./models/keywordToType";
+import { DiceField } from "./enums/diceField";
+import { NodeType } from "./enums/nodeType";
 const IMAGES_URL = [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZKk-vFG2wqWysYJw6R7Kbgwmd9jmCUg0tx_JdkDWgTBdfKWrcMMShZvi79CGNeWmXOBE&usqp=CAU",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU7aI2HS_LBTQNnXA93FW6pz0dk6gNf_Gp8jiI_rRCg2MpksMpqAJDXRlTne0OP47MNtQ&usqp=CAU",

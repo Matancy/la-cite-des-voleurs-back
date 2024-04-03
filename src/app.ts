@@ -3,7 +3,6 @@ import { levenshtein } from './Levenshtein';
 import { firstLoad } from './firstLoad';
 import { getPage } from './nodeRetrieval';
 import bodyParser from 'body-parser';
-import { Character } from './utils';
 import { getCharacter, insertCharacter } from './fillCharacter';
 
 const app = express()
