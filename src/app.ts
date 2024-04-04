@@ -6,6 +6,8 @@ import bodyParser from 'body-parser';
 import { getCharacter, insertCharacter } from './fillCharacter';
 import cors from 'cors';
 import { getCors } from './enums/cors';
+import fs from 'fs';
+
 
 const app = express()
 const port = 3100
@@ -22,6 +24,21 @@ app.use((req, res, next) => {
   )
   next();
 })
+
+
+app.get('/images/:id', (req, res) => {
+  const imagePath = `${__dirname}/assets/img/${req.params.id}.png`;
+
+  fs.readFile(imagePath, (err, data) => {
+      if (err) {
+          console.error('Error reading image file:', err);
+          res.status(500).send('Internal Server Error');
+          return;
+      }
+      res.set('Content-Type', 'image/png');
+      res.send(data);
+  });
+});
 
 /* @here */
 app.get('/nodes/:node', async (req, res) => {

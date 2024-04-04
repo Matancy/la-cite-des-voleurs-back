@@ -24,9 +24,13 @@ const STAMINA_FOE_FIELD = "%endurance%";
 
 /* @here */
 /* """call""" the  """API""" */
-function callAPI(prompt: string) {
+function callAPI(node: Node) {
     //bipboupbip
-    return IMAGES_URL[Math.floor(Math.random() * IMAGES_URL.length)];
+    if(node.prompt !== "none"){
+        return "null"
+    }else{
+        return `/images/${node.cell}`
+    }
 }
 
 function jsonBase(node: Node) {
@@ -34,7 +38,7 @@ function jsonBase(node: Node) {
         "id": "${node.cell}",
         "type": "${node.type}",
         "text": "${node.text}",
-        "imageURL": "${callAPI(node.prompt)}"
+        "imageURL": "${callAPI(node)}"
     `
 }
 
@@ -47,10 +51,10 @@ function generateEnd(node: Node) {
 async function generateDirectLink(node: Node) {
     return JSON.parse(`{
         ${jsonBase(node)},
-        "nextNode": {
+        "links": [{
             "id": "${node.links[0]}",
             "type": "${await getType(node.links[0])}"
-        }
+        }]
     }`)
 }
 
@@ -65,7 +69,7 @@ async function generateFight(node: Node) {
 
     return JSON.parse(`{
         ${jsonBase(node).replace(HABILITY_FOE_FIELD, hability.toString()).replace(STAMINA_FOE_FIELD, stamina.toString())},
-        "nextNode": {
+        "links": {
             "id": "${node.links[0]}",
             "type": "${await getType(node.links[0])}"
         },
