@@ -26,7 +26,7 @@ const STAMINA_FOE_FIELD = "%endurance%";
 /* """call""" the  """API""" */
 function callAPI(node: Node) {
     //bipboupbip
-    if(node.prompt !== "none"){
+    if(node.prompt === "none"){
         return "null"
     }else{
         return `/images/${node.cell}`
