@@ -22,7 +22,8 @@ const DOR = "d'or";
 const HABILITY_FOE_FIELD = "%habilete%";
 const STAMINA_FOE_FIELD = "%endurance%";
 
-
+/* @here */
+/* """call""" the  """API""" */
 function callAPI(prompt: string) {
     //bipboupbip
     return IMAGES_URL[Math.floor(Math.random() * IMAGES_URL.length)];

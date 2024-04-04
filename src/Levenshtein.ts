@@ -2,6 +2,7 @@ function minimum(nb1: number, nb2: number, nb3: number): number {
     return Math.min(Math.min(nb1, nb2), nb3)
 }
 
+/* @here */
 export function levenshtein(str1: string, str2: string) {
 
     let i: number;

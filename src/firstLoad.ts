@@ -11,6 +11,9 @@ import { Node } from './models/node';
 const readFileAsync = promisify(fs.readFile)
 const PROMPT_KEYWORD = "observe";
 
+
+/* @here bonus */
+/* Section type detection based on Levenshtein algorithm */
 function detectType(rawNode: rawNode) {
 
     if (rawNode.links.length == 0) {
@@ -76,7 +79,8 @@ function detectType(rawNode: rawNode) {
     return detectedType.type;
 }
 
-
+/* @here */
+/* generate the prompt to send send to the API */
 function generatePrompt(rawNode: rawNode) {
     let maximalScore = 4;
     let sentenceToReturn: string = null
@@ -95,7 +99,6 @@ function generatePrompt(rawNode: rawNode) {
     return sentenceToReturn;
 }
 
-// To reduce the impact of the database queries, we will execute one single query to populate the DB
 function generateQuery(nodes: Array<Node>) {
     let insertNodeQuery: string = "";
     let insertLinksQuery: string = "";
