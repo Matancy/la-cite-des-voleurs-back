@@ -104,6 +104,13 @@ async function generateChoices(node: Node) {
     const choices = choiceString.split(".");
     if (choices[choices.length - 1].trim() === "") choices.pop();
     let choiceIndex = 0;
+
+    if(choices && choices.length == 0 || !choices){
+        for(let link of node.links){
+            json += `{"cost" : "0", "id": "${link}","type": "${await getType(link)}"},`
+        }
+    }
+
     for (let choice of choices){
         const words = choice.split(" ");
         let index = 0;
@@ -168,6 +175,7 @@ export async function getPage(index: number): Promise<JSON> {
     return await client.query(SET_SCHEMA + query).then((res) => {
         client.end();
         let node: Node = res[1].rows[0]["node_data"];
+
         switch (node.type) {
             case NodeType.END: {
                 return generateEnd(node);

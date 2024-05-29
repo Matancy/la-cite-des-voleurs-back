@@ -128,5 +128,59 @@
         "cell": 600,
         "text": "<p>Votre prison est ordinaire, des murs froids, une légère odeur d'urine avec pour seul divertissent le couinement des rats. Vous vous résignez, attendant que le destin vous libère de cette cage d'acier en sachant pertinemment que la fin est proche.</p>",
         "links": []
+    },
+    {
+        "cell": 990,
+        "type":"choice",
+        "text": "<p>Noeud de test, type choix vers 991</p>",
+        "links": [
+            991,
+            992,
+            993,
+            994,
+            995
+        ]
+    },
+    {
+        "cell": 991,
+        "type":"fight",
+        "text": "<p>Noeud de test, type combat</p>",
+        "links": [
+            990
+        ]
+    },
+    {
+        "cell": 992,
+        "type":"dice",
+        "text": "<p>Noeud de test, type DES sur tentez votre chance</p>",
+        "links": [
+            990,
+            991
+        ]
+    },
+    {
+        "cell": 993,
+        "type":"dice",
+        "text": "<p>Noeud de test, type DES sur habileté</p>",
+        "links": [
+            990,
+            991
+        ]
+    },
+    {
+        "cell": 994,
+        "type":"directLink",
+        "text": "<p>Noeud de test, type direct</p>",
+        "links": [
+            990
+        ]
+    },
+    {
+        "cell": 995,
+        "type":"end",
+        "text": "<p>Noeud de test, type fin</p>",
+        "links": [
+            
+        ]
     }
 ]

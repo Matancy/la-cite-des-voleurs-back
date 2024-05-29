@@ -119,7 +119,7 @@ export async function firstLoad() {
 
     rawNodes.forEach((rawNode) => {
         console.log("detecting type of node " + rawNode.cell)
-        let type = detectType(rawNode);
+        let type = rawNode.type ? rawNode.type : detectType(rawNode);
         console.debug("node " + rawNode.cell + " type: " + type)
 
         console.log("Generating prompt of node " + rawNode.cell)
