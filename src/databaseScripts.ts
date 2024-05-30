@@ -23,6 +23,12 @@ export const CREATE_TABLE = `
         luck int NOT NULL,
         gold int NOT NULL
     );
+
+    CREATE TABLE users(
+        login varchar(20) PRIMARY KEY UNIQUE NOT NULL,
+        password varchar(500) NOT NULL,
+        statistics text
+    );
 `;
 export const INSERT_NODE_QUERY_BASE = "INSERT INTO node (cell, text, type, prompt) VALUES %s ;";
 
@@ -55,3 +61,6 @@ FROM character c;
 `
 
 export const SELECT_NODE_TYPE_BASE = "SELECT type FROM node WHERE node.cell = %s ;"
+
+export const CREATE_USER_BASE = "INSERT INTO users (login, password, statistics) VALUES %s ;"
+export const SELECT_USER_BASE = "SELECT statistics FROM users WHERE users.login = '%1s' AND users.password = '%2s' ;"

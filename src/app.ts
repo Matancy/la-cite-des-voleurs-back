@@ -7,6 +7,7 @@ import { getCharacter, insertCharacter } from './fillCharacter';
 import cors from 'cors';
 import { getCors } from './enums/cors';
 import fs from 'fs';
+import { createUser, getUser } from './fillUser';
 
 
 const app = express()
@@ -58,6 +59,30 @@ app.post('/character', (req, res) => {
   insertCharacter(req.body)
   res.end("character inserted");
 });
+
+/* @here */
+app.post('/user/create', async (req, res) => {
+  try{
+    await createUser(req.body)
+    res.status(200).end("user created");
+  }catch(e){
+    res.status(400).end("login already exists")
+  }
+});
+
+
+/* @here */
+app.post('/user', async (req, res) => {
+
+  try{
+    let stats = await getUser(req.body)
+    res.status(200).end(stats?stats:"{}")
+  }catch(e){
+    res.status(401).end("bad password or login");
+  }
+
+});
+
 
 /* @here */
 app.listen(port, () => {
