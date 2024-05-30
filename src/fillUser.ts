@@ -13,8 +13,6 @@ function generateSelectQuery(user: User) {
 
 
 function generateUpdateQuery(user: User){
-    console.log(JSON.stringify(user.save))
-    console.log(user.save)
     return SET_SCHEMA + UPDATE_USER_BASE.replace("%1s", JSON.stringify(user.save)).replace("%2s", user.id).replace("%3s", user.password)
 }
 
@@ -22,25 +20,21 @@ function generateUpdateQuery(user: User){
 export async function createUser(user: User) {
     const credentials = await getCredentials();
     const client = new Pool(credentials);
-
     await client.query(generateFillQuery(user));
     client.end();
 }
 
 export async function getUser(user: User) {
     const credentials = await getCredentials();
-
     const client = new Pool(credentials);
     let res = await client.query(generateSelectQuery(user));
     client.end();
-    console.log(res[1].rows[0])
     return res[1].rows[0]['statistics'];
 }
 
 export async function updateUser(user: User){
     const credentials = await getCredentials();
     const client = new Pool(credentials);
-    generateUpdateQuery(user)
     await client.query(generateUpdateQuery(user));
     client.end();
 }
