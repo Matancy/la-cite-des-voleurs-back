@@ -64,3 +64,4 @@ export const SELECT_NODE_TYPE_BASE = "SELECT type FROM node WHERE node.cell = %s
 
 export const CREATE_USER_BASE = "INSERT INTO users (login, password, statistics) VALUES %s ;"
 export const SELECT_USER_BASE = "SELECT statistics FROM users WHERE users.login = '%1s' AND users.password = '%2s' ;"
+export const UPDATE_USER_BASE = "UPDATE users SET statistics = '%1s' WHERE login = '%2s' AND password = '%3s';"

@@ -7,7 +7,7 @@ import { getCharacter, insertCharacter } from './fillCharacter';
 import cors from 'cors';
 import { getCors } from './enums/cors';
 import fs from 'fs';
-import { createUser, getUser } from './fillUser';
+import { createUser, getUser, updateUser } from './fillUser';
 
 
 const app = express()
@@ -81,6 +81,16 @@ app.post('/user', async (req, res) => {
     res.status(401).end("bad password or login");
   }
 
+});
+
+/* @here */
+app.post('/user/update', async (req, res) => {
+  try{
+    await updateUser(req.body)
+    res.status(200).end("user save updated")
+  }catch(e){
+    res.status(401).end("fuck shit damn fuck me");
+  }
 });
 
 
