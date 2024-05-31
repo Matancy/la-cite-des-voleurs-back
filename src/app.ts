@@ -71,7 +71,6 @@ app.post('/user/create', async (req, res) => {
   }
 });
 
-
 /* @here */
 app.post('/user', async (req, res) => {
   try{
@@ -80,7 +79,6 @@ app.post('/user', async (req, res) => {
   }catch(e){
     res.status(401).end("bad password or login");
   }
-
 });
 
 /* @here */
@@ -88,15 +86,6 @@ app.post('/user/update', async (req, res) => {
   try{
     await updateUser(req.body)
     res.status(200).end("user save updated")
-  }catch(e){
-    res.status(401).end("fuck shit damn fuck me");
-  }
-});
-
-/* @here */
-app.post('/riddle', async (req, res) => {
-  try{
-    await new RiddleHandler().checkAnswer(req.body)?res.status(200).end("good answer"):res.status(400).end("wrong answer")
   }catch(e){
     res.status(401).end("fuck shit damn fuck me");
   }
