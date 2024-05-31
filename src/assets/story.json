@@ -1,7 +1,7 @@
 [
     {
         "cell": 1,
-        "text": "<p>Pour gagner le Port du Sable Noir, vous parcourez en direction de l'ouest environ soixante-quinze kilomètres à travers des plaines et par-delà des collines sans faire de rencontres fâcheuses, heureusement. Vous finissez par rejoindre la côte et vous apercevez les hautes murailles qui entourent le Port du Sable Noir et le groupe de maisons serrées qui avancent dans la mer comme une hideuse excroissance noire. Des navires sont mouillés dans le port, et de la fumée s'élève doucement des cheminées. La scène paraît assez paisible, et c'est seulement lorsque le vent change, vous apportant une odeur de putréfaction, que vous vous rappelez la nature maléfique de cet endroit tristement célebre. <br>En suivant la route poussiéreuse qui longe la côte vers le nord pour arriver aux portes de la ville, vous commencez à remarquer des signes inquiétants, des crânes sur des épieux de bois, des êtres squelettiques dans des cages accrochées aux murailles de la ville, des drapeaux noirs partout. Lorsque vous vous approchez de la porte principale, vous sentez un frisson vous parcourir l'échine et, instinctivement, vous serrez la poignée de votre épée pour vous rassurer. <br>A la porte, un garde gigantesque en cotte de mailles noire et casque d'acier vous observe. Il avance d'un pas, vous barrant le chemin avec sa lance, en disant : <br>« Qui oserait entrer au Port du Sable Noir sans y être invité ? Précise le motif de ta venue ou retourne d'où tu viens. » <br>Allez-vous : <ul><li>Lui dire que vous désirez être conduit auprès de Nicodème ? Rendez-vous au 202.</li><li>Lui dire que vous désirez vendre un butin volé ? Rendez-vous au 33.</li><li>L'attaquer aussitôt avec votre épée ? Rendez-vous au 49.</li></ul></p>",
+        "text": "<p>Pour gagner le Port du Sable Noir, vous parcourez en direction de l'ouest environ soixante-quinze kilomètres à travers des plaines et par-delà des collines sans faire de rencontres fâcheuses, heureusement. Vous finissez par rejoindre la côte et vous apercevez les hautes murailles qui entourent le Port du Sable Noir et le groupe de maisons serrées qui avancent dans la mer comme une hideuse excroissance noire. Des navires sont mouillés dans le port, et de la fumée s'élève doucement des cheminées. La scène paraît assez paisible, et c'est seulement lorsque le vent change, vous apportant une odeur de putréfaction, que vous vous rappelez la nature maléfique de cet endroit tristement célebre. <br>En suivant la route poussiéreuse qui longe la côte vers le nord pour arriver aux portes de la ville, vous commencez à remarquer des signes inquiétants, des crânes sur des épieux de bois, des êtres squelettiques dans des cages accrochées aux murailles de la ville, des drapeaux noirs partout. Lorsque vous vous approchez de la porte principale, vous sentez un frisson vous parcourir l'échine et, instinctivement, vous serrez la poignée de votre épée pour vous rassurer. <br>A la porte, un garde gigantesque en cotte de mailles noire et casque d'acier vous observe. Il avance d'un pas, vous barrant le chemin avec sa lance, en disant : <br>« Qui oserait entrer au Port du Sable Noir sans y être invité ? Précise le motif de ta venue ou retourne d'où tu viens. » <br>Allez-vous : <ul><li>Lui dire que vous désirez être conduit auprès de Nicodème ? Rendez-vous au 202.</li><li>Lui dire que vous désirez vendre un butin volé ? Rendez-vous au 33.</li><li>L'attaquer aussitôt avec votre épée ? Rendez-vous au 49.</li><li>Le laisser vous poser une question parcequ'en fait il très gentil? Rendez-vous au 2.</li></ul></p>",
         "links": [
             202,
             33,
@@ -11,6 +11,7 @@
     },
     {
         "cell": 2,
+        "type": "riddle",
         "text": "<p>c'est une énigme, eh oui<br></p>",
         "links": [
             202
@@ -33,11 +34,12 @@
     },
     {
         "cell": 33,
-        "text": "<p>Vous déclarez au garde que vous désirez vendre quelques coupes en or que vous avez volées dans une taverne de Silverton, et que vous lui donnerez une Pièce d'Or en paiement s'il vous indique où vous adresser pour obtenir le meilleur prix, le garde vous considère d'un regard soupçonneux et dit : <br>« Laissez-moi voir ces coupes dans votre sac à dos avant que je vous laisse entrer. » <br>Allez-vous : <br><ul><li>Lui dire que vous savez que les coupes sont maudites et ne devraient être examinées que par un mage ? Rendez-vous au 381.</li><li>Essayer de vous ruer au-delà du garde dans la rue principale ? Rendez-vous au 291.</li><li>L'attaquer rapidement avec votre épée ? Rendez-vous au 49.</li></ul></p>",
+        "text": "<p>Vous déclarez au garde que vous désirez vendre quelques coupes en or que vous avez volées dans une taverne de Silverton, et que vous lui donnerez une Pièce d'Or en paiement s'il vous indique où vous adresser pour obtenir le meilleur prix, le garde vous considère d'un regard soupçonneux et dit : <br>« Laissez-moi voir ces coupes dans votre sac à dos avant que je vous laisse entrer. » <br>Allez-vous : <br><ul><li>Lui dire que vous savez que les coupes sont maudites et ne devraient être examinées que par un mage ? Rendez-vous au 381.</li><li>Essayer de vous ruer au-delà du garde dans la rue principale ? Rendez-vous au 291.</li><li>L'attaquer rapidement avec votre épée ? Rendez-vous au 49.</li><li>Lui proposer de répondre à une de ses fameuse énigme? Rendez-vous au 2</li></ul></p>",
         "links": [
             381,
             291,
-            49
+            49,
+            2
         ]
     },
     
@@ -146,7 +148,8 @@
             992,
             993,
             994,
-            995
+            995,
+            996
         ]
     },
     {
@@ -189,6 +192,14 @@
         "text": "<p>Noeud de test, type fin</p>",
         "links": [
             
+        ]
+    },
+    {
+        "cell": 996,
+        "type":"riddle",
+        "text": "<p>Noeud de test, type enigme</p>",
+        "links": [
+            990
         ]
     }
 ]
