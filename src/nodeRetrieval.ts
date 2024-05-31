@@ -8,6 +8,7 @@ import { KeywordToType } from "./models/keywordToType";
 import { DiceField } from "./enums/diceField";
 import { NodeType } from "./enums/nodeType";
 import { getType } from "./getType";
+import { RiddleHandler } from "./models/riddleHandler";
 const IMAGES_URL = [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZKk-vFG2wqWysYJw6R7Kbgwmd9jmCUg0tx_JdkDWgTBdfKWrcMMShZvi79CGNeWmXOBE&usqp=CAU",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU7aI2HS_LBTQNnXA93FW6pz0dk6gNf_Gp8jiI_rRCg2MpksMpqAJDXRlTne0OP47MNtQ&usqp=CAU",
@@ -164,6 +165,18 @@ async function generateDice(node: Node) {
     }`)
 }
 
+async function generateRiddle(node: Node){
+    const riddle = await new RiddleHandler().getRandomRiddle();
+
+    return `
+    "id": "${node.cell}",
+    "type": "${node.type}",
+    "text": "${node.text}. <p>${riddle.riddle}</p>",
+    "riddleID": "${riddle.id}",
+    "imageURL": "${callAPI(node)}"
+    `
+}
+
 export async function getPage(index: number): Promise<JSON> {
 
     let credentials = await getCredentials();
@@ -191,6 +204,9 @@ export async function getPage(index: number): Promise<JSON> {
             }
             case NodeType.CHOICE: {
                 return generateChoices(node);
+            }
+            case NodeType.RIDDLE: {
+                return generateRiddle(node)
             }
             default: {
                 throw new Error("Could not get the node type.");

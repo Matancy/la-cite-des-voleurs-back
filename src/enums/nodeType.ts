@@ -3,5 +3,6 @@ export enum NodeType {
     CHOICE = "choice",
     FIGHT = "fight",
     DIRECT_LINK = "directLink",
-    END = "end"
+    END = "end",
+    RIDDLE = "riddle"
 }

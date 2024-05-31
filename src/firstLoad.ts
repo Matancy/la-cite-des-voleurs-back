@@ -62,6 +62,7 @@ function detectType(rawNode: rawNode) {
                 isOfType(word, KeywordToType.LUCK)
                 isOfType(word, KeywordToType.FIGHT)
                 isOfType(word, KeywordToType.CHOICE)
+                isOfType(word, KeywordToType.RIDDLE)
             })
         })
         if (conflict) {

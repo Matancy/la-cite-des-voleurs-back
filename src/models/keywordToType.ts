@@ -11,4 +11,5 @@ export class KeywordToType {
     static readonly FIGHT: KeywordToTypeHolder = { keyword: "battez", type: NodeType.FIGHT };
     static readonly DIRECT_LINK = { keyword: "", type: NodeType.DIRECT_LINK };
     static readonly END: KeywordToTypeHolder = { keyword: "", type: NodeType.END };
+    static readonly RIDDLE : KeywordToTypeHolder = { keyword: "énigme", type: NodeType.RIDDLE};
 }

@@ -8,6 +8,7 @@ import cors from 'cors';
 import { getCors } from './enums/cors';
 import fs from 'fs';
 import { createUser, getUser, updateUser } from './fillUser';
+import { RiddleHandler } from './models/riddleHandler';
 
 
 const app = express()
@@ -93,6 +94,14 @@ app.post('/user/update', async (req, res) => {
   }
 });
 
+/* @here */
+app.post('/riddle', async (req, res) => {
+  try{
+    await new RiddleHandler().checkAnswer(req.body)?res.status(200).end("good answer"):res.status(400).end("wrong answer")
+  }catch(e){
+    res.status(401).end("fuck shit damn fuck me");
+  }
+});
 
 /* @here */
 app.listen(port, () => {
