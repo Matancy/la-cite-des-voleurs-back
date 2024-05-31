@@ -73,7 +73,7 @@ function detectType(rawNode: rawNode) {
         }
     } while (conflict)
 
-    if (detectedType != KeywordToType.FIGHT && rawNode.links.length == 1) {
+    if (detectedType != KeywordToType.FIGHT && detectedType != KeywordToType.RIDDLE && rawNode.links.length == 1) {
         detectedType = KeywordToType.DIRECT_LINK;
     }
 
