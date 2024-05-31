@@ -13,7 +13,7 @@ function generateSelectQuery(user: User) {
 
 
 function generateUpdateQuery(user: User){
-    return SET_SCHEMA + UPDATE_USER_BASE.replace("%1s", JSON.stringify(user.save)).replace("%2s", user.id).replace("%3s", user.password)
+    return SET_SCHEMA + UPDATE_USER_BASE.replace("%1s", JSON.stringify(user.save)).replace("%2s", user.id)
 }
 
 

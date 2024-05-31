@@ -74,7 +74,6 @@ app.post('/user/create', async (req, res) => {
 
 /* @here */
 app.post('/user', async (req, res) => {
-
   try{
     let stats = await getUser(req.body)
     res.status(200).end(stats?stats:"{}")
