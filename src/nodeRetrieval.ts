@@ -171,8 +171,12 @@ async function generateRiddle(node: Node){
     return `
     "id": "${node.cell}",
     "type": "${node.type}",
-    "text": "${node.text}. <p>${riddle.riddle}</p>",
+    "text": "${node.text}<p>${riddle.riddle}</p>",
     "riddleAnswer": "${riddle.answer}",
+    "links": [{
+        "id": "${node.links[0]}",
+        "type": "${await getType(node.links[0])}"
+    }],
     "imageURL": "${callAPI(node)}"
     `
 }
