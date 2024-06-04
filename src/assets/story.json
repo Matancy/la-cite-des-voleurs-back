@@ -11,7 +11,7 @@
     },
     {
         "cell": 2,
-        "text": "<p>c'est une énigme, eh oui<br></p>",
+        "text": "<p>C'est une énigme, eh oui<br></p>",
         "links": [
             202
         ]
@@ -141,7 +141,7 @@
     {
         "cell": 990,
         "type":"choice",
-        "text": "<p>Noeud de test, type choix vers 991</p>",
+        "text": "<p>Noeud de test, type choix. Allez-vous :<br><ul><li>Aller a 991 pour 3 Pièces d'Or ? Rendez-vous au 991.</li><li>Autre chose ? Rendez-vous 992.</li><li>Autre chose ? Rendez-vous 993.</li><li>Autre chose ? Rendez-vous 994.</li><li>Autre chose ? Rendez-vous 995.</li><li>Autre chose ? Rendez-vous 996.</li></ul></p>",
         "links": [
             991,
             992,
