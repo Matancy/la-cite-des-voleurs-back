@@ -1,52 +1,52 @@
 [
     {
-        "id": "0",
-        "riddle": "Le matin je suis dressé et sent bon la marrée. Qui suis-je ?",
-        "answer": "Ma bite"
+        "id": 0,
+        "riddle": "Je suis toujours devant vous, mais je ne peux pas être touché. Quel est mon nom ?",
+        "answer": "reflet"
     },
     {
-        "id": "1",
-        "riddle": "Je suis longue et dure, je me glisse entre tes doigts et quand je fais mon travail, je te fais saliver. Qui suis-je ?",
-        "answer": "Brosse"
+        "id": 1,
+        "riddle": "Je suis petit comme une souris mais je peux remplir une pièce entière. Que suis-je ?",
+        "answer": "bruit"
     },
     {
-        "id": "2",
-        "riddle": "Je suis souvent mouillé, je pénètre dans un trou sombre et je fais ressortir un liquide blanc. Qui suis-je ?",
-        "answer": "Pinceau"
+        "id": 2,
+        "riddle": "Je suis léger comme une plume, mais le plus fort ne peut me tenir longtemps. Qui suis-je ?",
+        "answer": "souffle"
     },
     {
-        "id": "3",
-        "riddle": "Je suis chaud, humide et doux à l'intérieur, et je fais des va-et-vient rapides pour te donner du plaisir. Qui suis-je ?",
-        "answer": "Langue"
+        "id": 3,
+        "riddle": "Toute galante je m'en vais, un petit coup je te laisse. Qui suis-je ?",
+        "answer": "coupure"
     },
     {
-        "id": "4",
-        "riddle": "Je suis rond, je fais des allers-retours sur un terrain, et j’aime qu’on me frappe. Qui suis-je ?",
-        "answer": "Ballon"
+        "id": 4,
+        "riddle": "Je suis fait pour la classe, mais je n'enseigne rien. Que suis-je ?",
+        "answer": "tableau"
     },
     {
-        "id": "5",
-        "riddle": "Je me lève pour pénétrer dans un trou humide. Quand je ressors, je laisse des gouttes derrière moi. Qui suis-je ?",
-        "answer": "Parapluie"
+        "id": 5,
+        "riddle": "Plus brûlant que le feu, plus profond que l'océan, les pauvres en ont et les riches en manquent. Qui suis-je ?",
+        "answer": "besoin"
     },
     {
-        "id": "6",
-        "riddle": "Je suis toujours à l'ombre, même en plein soleil. Qui suis-je ?",
-        "answer": "Ombre"
+        "id": 6,
+        "riddle": "Je suis toujours affamé, tout en étant plein. Qui suis-je ?",
+        "answer": "feu"
     },
     {
-        "id": "7",
-        "riddle": "Je peux être doux ou dur, et on m'utilise pour rentrer à la maison. Qui suis-je ?",
-        "answer": "Clé"
+        "id": 7,
+        "riddle": "Plus je suis prêt, plus tu recules. Qui suis-je ?",
+        "answer": "temps"
     },
     {
-        "id": "8",
-        "riddle": "Je suis à l'extérieur la nuit et on m'aime bien pendant les fêtes. Qui suis-je ?",
-        "answer": "Étoiles"
+        "id": 8,
+        "riddle": "Je suis lourd à porter, mais indispensable pour avancer. Que suis-je ?",
+        "answer": "passé"
     },
     {
-        "id": "9",
-        "riddle": "Je suis une partie de toi, mais tu me trouves souvent au bout de tes doigts. Qui suis-je ?",
-        "answer": "Ongle"
+        "id": 9,
+        "riddle": "Je suis toujours devant vous mais vous me suivez. Qui suis-je ?",
+        "answer": "avenir"
     }
 ]
