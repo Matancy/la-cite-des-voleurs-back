@@ -165,6 +165,7 @@ async function generateDice(node: Node) {
     }`)
 }
 
+//@here2 Louan
 async function generateRiddle(node: Node){
     const riddle = await new RiddleHandler().getRandomRiddle();
 
